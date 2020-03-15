@@ -119,7 +119,7 @@ The first element in the sequence is registered at $t0$   and labelled as ‘A�
 At the end of the training, all trained genomes will be stored in the sequence database as a lookup table to predict different machine breakdown scenarios. In the above example, if during prediction, state ‘A’ is detected, the likelihood of the breakdown is 20\% (1 out of five possible events). Consequently, if ‘A’$\to$’B’$\to$‘C’$\to$’D’ occurred in the real-time prediction, more likely the next sequence is ‘E’ unless it occurred otherwise. 
 
 A case study is presented in the following section to explain further the implementation of the GMB in a real industrial case. Here every step of the machine breakdown is registered in the form of a chain of events coded in the form of a sequence of genomes representing the DNA of machine that lead to “healthy” or “breakdown” outcome.
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{\includegraphics[width=\linewidth]{Genome_Labelling.png}}
 \caption{Genome labelling and sequential differentiation example.}
 \label{fig:Genome_labelling}
@@ -153,7 +153,7 @@ The step-by-step implementation of the proposed ESP is as follows:
 \subsection{Event-Clustering sensitivity analysis algorithm}
 \label{subsec:event_clustering}
 As explained above, GMB algorithm begins with dimensionality reduction through Event clustering technique \cite{Danishvar2018}. This helps to find the correlation between inputs and output signal parameters, reveals the sensitivity of the filter clogging (output) against the machine state parameters (system input signals). The interpretation of the data series is based on triggers and events. Only those changes in the data series that are interpreted as triggers represent state change, and the trigger threshold was set at $2\%$.   It means that any alteration in input sensors (machine data) and filter clogging, more than $2\%$ has been considered as a new event. The Event-Cluster outputs are shown in Table~\ref{tab:I}.
-\begin{table}[htbp]
+\begin{table}[tbp]
     \caption{Event Clustering output between the machine sensors and filter clogging}
     \begin{center}
         \begin{tabular}{|c|c|}
@@ -183,7 +183,7 @@ The second step in the sequential event modelling algorithm is the identificatio
 In the training process, a series of the events of machine coolant flow-rate sensor (the highest impact) are labelled. The First label is ‘A’ at the beginning of the cycle, i.e. coolant sensor, which is between $281$ and $275$ (threshold is $2\%$ as explained above). State A lasts seven days and 19hrs. The remaining state and their duration are in Table~\ref{tab:II}.
 
 Therefore, the GMB and degradation for the specific full cycle is ‘ABCD’ as defined in Table~\ref{tab:II}. The duration of this breakdown lasts \SI{12}{\day} \SI{3}{\hour}. The results of gene definition, labels and their sequence of occurrence (DNA) after tens of full-cycle samples (More sample in training, leads to more accuracy and confidence in prediction) will be stored in the machine breakdown genes pool. This trained genes would be useful for the machine operator which based on online process parameter and machine data, potential anomaly alerts raised by the model could enable PdM.
-\begin{table}[htbp]
+\begin{table}[tbp]
     \caption{Labelled state, Coolant flow-rate and duration}
     \begin{center}
         \begin{tabular}{|c|c|c|}
@@ -215,7 +215,7 @@ The noise in the model can be minimised by having a larger training period—the
     R(t) = \left(\frac{S-\sigma}{\phi(t)}\right)-t
     \label{eq:RUL}
 \end{equation}
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{\includegraphics[width=\linewidth]{Model.png}}
 \caption{Sensor values of flow-rate training period of 105 cycles and prediction of sensor values and RUL until the predicted values crosses the ST.}
 \label{fig:Model}
@@ -243,7 +243,7 @@ The estimation of RUL for all the sensors is carried out according to the ST pre
   \label{fig:Weibull}
 \end{figure}
 
-\begin{table}[htbp]
+\begin{table}[b]
     \caption{The MTTF estimation components via the associated four sensors of the thermal regulator}
     \begin{center}
         \begin{tabular}{|c|c|}
@@ -266,7 +266,7 @@ The estimation of RUL for all the sensors is carried out according to the ST pre
 \subsection{Estimation of lifetime of the thermal regulator}
 \label{subsec:Lifetime}
 The lifetime, $R_{eff} (t)$, of the thermal regulator with respect to the filter clog failure mode is estimated by the combination of MTTF of all the sensors and the weightage ($w$) of the sensors related to the filter clog as estimated in Table~\ref{tab:I}. The life time of the thermal regulator is estimated as shown in \eqref{eq:R_eff} and Fig.~\ref{fig:R_eff}.
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 \centerline{\includegraphics[width=\linewidth]{R_eff.png}}
 \caption{The effective life time of the thermal regulator is estimated with RUL estimates of individual components and the weights.}
 \label{fig:R_eff}
