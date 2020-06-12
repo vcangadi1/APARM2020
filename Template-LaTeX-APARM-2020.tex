@@ -270,7 +270,7 @@ The lifetime, $R_{eff} (t)$, of the thermal regulator with respect to the filter
 \label{fig:R_eff}
 \end{figure}
 \begin{equation}
-    R_{eff}(t) = \frac{1}{w}\Sigma^N R_N(t)\cdot w
+    R_{eff}(t) = \frac{\sum\limits_{i=1}^N w_i R_i(t)}{\sum\limits_{i=1}^N w_i}
     \label{eq:R_eff}
 \end{equation}
 Where $R_N (t)$ and $N$ are the MTTF and number of sensors in the thermal regulator, the estimated lifetime of the thermal regulator with respect to filter clog is $12$ week \SI{3}{\day} \SI{16}{\hour} \SI{25}{\minute} \SI{15}{\second}. The lifetime of the thermal regulator estimation clearly dependent on the safety (failure) threshold.
