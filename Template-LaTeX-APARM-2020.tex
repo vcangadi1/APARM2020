@@ -20,8 +20,13 @@
 % begin DWei added #1
 \usepackage{fancyhdr}
 \fancyhf{} % comment this to show page number on center footer
+\renewcommand{\headrulewidth}{0pt} %added by DWei on May 11, 2020
 \pagestyle{fancy}
 \rfoot{\parbox{3.5in}{\raggedleft\fontsize{8pt}{10pt} \selectfont \textcolor{gray}{The 9th Asia-Pacific International Symposium on Advanced Reliability and Maintenance Modeling  (APARM 2020 -- Vancouver)}}}
+\fancypagestyle{firstpage}{%added on June 25, 2020
+	\rfoot{\parbox{3.5in}{\raggedleft\fontsize{8pt}{10pt} \selectfont \textcolor{gray}{The 9th Asia-Pacific International Symposium on Advanced Reliability and Maintenance Modeling  (APARM 2020 -- Vancouver)}
+	\linebreak[4] \hspace{1mm}\linebreak[4]
+	\textcolor{black}{978-1-7281-7102-9/20/\$31.00 $\copyright$2020 IEEE}}}}
 % end DWei added #1
 
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -34,27 +39,27 @@
 
 \author{\IEEEauthorblockN{Morad Danishvar}
 \IEEEauthorblockA{\textit{College of Engineering, Design and} \\ \textit{Physical Sciences} \\
-\textit{Brunel University}\\
-London, UK \\
+\textit{Brunel University London}\\
+Uxbridge, UK \\
 Morad.Danishvar@brunel.ac.uk}\\
 \and
 \IEEEauthorblockN{Veerendra C. Angadi}
 \IEEEauthorblockA{\textit{College of Engineering, Design and} \\ \textit{Physical Sciences} \\
-\textit{Brunel University}\\
-London, UK \\
+\textit{Brunel University London}\\
+Uxbridge, UK \\
 Veer.Angadi@brunel.ac.uk}\\
 \and
 \IEEEauthorblockN{Alireza Mousavi}
 \IEEEauthorblockA{\textit{College of Engineering, Design and} \\ \textit{Physical Sciences} \\
-\textit{Brunel University}\\
-London, UK \\
+\textit{Brunel University London}\\
+Uxbridge, UK \\
 Alireza.Mousavi@brunel.ac.uk}\\
 }
 
 \maketitle
 % begin DWei added #2
-\thispagestyle{fancy}
-% begin DWei added #2
+\thispagestyle{firstpage}
+% begin DWei added #2: June 25, 2020
 
 \begin{abstract}
 A novel event-based predictive maintenance framework based on sensor signal measurements and regressive predictions to minimise machine breakdown and component failure is proposed. Such capabilities will be complemented by Event-Clustering technique to cluster and remove less impact sensor signals and also build breakdown genomics from the root of a failure in order to predict the upcoming machine breakdowns and components failures.  The creation of machine breakdown genomics requires the knowledge of systems state observed as well as the state change at specified time intervals (discretization). The proposed framework is applied to a real application case study. An industrial case study of a continuous compression moulding machine that manufactures the plastic bottle closure (caps) in the beverage industry has been considered as an experiment. The machine breakdown genomics theory is tested in this case to build the sequence of events or the genomics of breakdown, where sequences of contiguous events lead to failure or healthy machine status. This is complemented by the Regression Event-Tracker method to estimates the condition monitoring of the components and provide components real-time remaining useful life estimation. The Weibull failure-rate analysis is carried out on the remaining useful life estimates for each element to understand and estimate the mean time to failure for the manufacturing machine.
@@ -94,7 +99,7 @@ A case study is presented in the following section to explain further the implem
 \label{sec:DNA_CCM}
 A use case of a continuous compression moulding machine is considered which manufactures the plastic bottle closure (caps) that caters for the beverage industry. The process uses a compression moulding technique rather than the more traditional approach of injection moulding machine \cite{Liu2020}. The compression moulding \cite{Peltonen1992} machine produces bottle caps at a faster rate with the process of compressing and cooling happening at the same stage. The crucial process in the manufacturing of the caps is the coolant which is cooling the moulded plastic. This module is called the thermal regulator. The thermal regulator maintains the temperature of the coolant through the process by a series of a control system, as shown in Fig.~\ref{fig:TH_schematic}.
 \begin{figure}[b]
-\centerline{\includegraphics[width=0.5\linewidth]{TH_schematic.png}}
+\centerline{\includegraphics[width=0.59\linewidth]{TH_schematic.png}}
 \caption{The flow diagram of the coolant in the thermal regulator.}
 \label{fig:TH_schematic}
 \end{figure}
